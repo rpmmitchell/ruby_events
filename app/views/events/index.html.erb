@@ -1,0 +1,52 @@
+<a href="/users/<%= session[:user_id] %>">Event Dashboard</a>
+<h1><%= @event.name %></h1>
+<div id="event_info">
+	<ul>
+		<li>Host: <%= @event.host %></li>
+		<li>Date: <%= @event.date %></li>
+		<li>Location: <%= @event.location %></li>
+		<li>People who are joining the event <%= @event.joins.count %></li>
+	</ul>
+	<h3>People attending event:</h3>
+	<table>
+		<thead>
+			<tr>
+				<th>Name</th>
+				<th>Location</th>
+			</tr>
+		</thead>
+		<tbody>
+			<% @event.users_joined.each do |i| %>
+				<tr>
+					<td><%= i.first_name %> <%= i.last_name %></td>
+					<td><%= i.location %></td>
+				</tr>
+			<% end %>
+		</tbody>
+	</table>
+</div>
+<div id="comments">
+	<h3>Comments:</h3>
+	<div id="comment_box">
+		<ul>
+			<% @comments.each do |i| %>
+				<% if i.event_id == @event.id%>
+					<% if i.user_id == session[:user_id] %>
+						<li><%= i.user.first_name %> says: <%= i.content %> <a href="/comments/<%= i.id %>" data-method="delete">Delete</a></li>
+					<% else %>
+						<li><%= i.user.first_name %> says: <%= i.content %></li>
+					<% end %>
+				<% end %>
+			<% end %>
+		</ul>
+	</div>
+	<div id="comment_add">
+		Add Comment:
+		<form action="/comments/<%= @event.id %>" method="post">
+			<input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+			<input type="text" name="content">
+			<button type="submit">Add Comment</button>
+		</form>
+	</div>
+</div>
+

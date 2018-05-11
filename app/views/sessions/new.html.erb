@@ -1,0 +1,80 @@
+<h1>Login/Sign-Up</h1>
+
+
+<div id="register">
+	<form action="<%= users_create_path %>" method="post">
+		<input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+		First Name: <input type="text" name="first_name">
+		Last Name: <input type="text" name="last_name">
+		Email: <input type="text" name="email">
+		Location:
+			<select name="location">
+				<option value="Alabama">AL</option>
+				<option value="Alaska">AK</option>
+				<option value="Arkansas">AR</option>	
+				<option value="Arizona">AZ</option>
+				<option value="California">CA</option>
+				<option value="Colorado">CO</option>
+				<option value="Connecticut">CT</option>
+				<option value="District of Columbia">DC</option>
+				<option value="Delaware">DE</option>
+				<option value="Florida">FL</option>
+				<option value="Georgia">GA</option>
+				<option value="Hawaii">HI</option>
+				<option value="Iowa">IA</option>	
+				<option value="Idaho">ID</option>
+				<option value="Illinois">IL</option>
+				<option value="Indiana">IN</option>
+				<option value="Kansas">KS</option>
+				<option value="Kentucky">KY</option>
+				<option value="Louisiana">LA</option>
+				<option value="Massachusetts">MA</option>
+				<option value="Maryland">MD</option>
+				<option value="Maine">ME</option>
+				<option value="Michigan">MI</option>
+				<option value="Minnesota">MN</option>
+				<option value="Missouri">MO</option>	
+				<option value="Mississippi">MS</option>
+				<option value="Montana">MT</option>
+				<option value="North Carolina">NC</option>	
+				<option value="Nebraska">NE</option>
+				<option value="New Hampshire">NH</option>
+				<option value="New Jersey">NJ</option>
+				<option value="New Mexico">NM</option>			
+				<option value="Nevada">NV</option>
+				<option value="New York">NY</option>
+				<option value="North Dakota">ND</option>
+				<option value="Ohio">OH</option>
+				<option value="Oklahoma">OK</option>
+				<option value="Oregon">OR</option>
+				<option value="Pennsylvania">PA</option>
+				<option value="Rhode Island">RI</option>
+				<option value="South Carolina">SC</option>
+				<option value="South Dakota">SD</option>
+				<option value="Tennesse">TN</option>
+				<option value="Texas">TX</option>
+				<option value="Utah">UT</option>
+				<option value="Vermont">VT</option>
+				<option value="Virgina">VA</option>
+				<option value="Washington">WA</option>
+				<option value="Wisconsin">WI</option>	
+				<option value="West Virgina">WV</option>
+				<option value="Wyoming">WY</option>
+		</select>
+		Password: <input type="text" name="password">
+		Password Confirmation: <input type="text" name="password_confirmation">
+		<button type="submit" value="Join">Join</button>
+	</form>
+</div>
+
+
+
+<div id="login">
+	<form action="/sessions" method="post">
+		<input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+		Email: <input type="text" name="email" id="Email">
+		Password: <input type="text" name="password" id="Password">
+		<button type="submit" value="Log In">Log In</button>
+	</form>
+</div>
+
